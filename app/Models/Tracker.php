@@ -10,9 +10,6 @@ class Tracker extends Model
 {
     use HasFactory;
 
-    public const LATITUDE = 'latitude';
-    public const LONGITUDE = 'longitude';
-
     protected $table = 'trackers';
 
     protected $fillable = [
