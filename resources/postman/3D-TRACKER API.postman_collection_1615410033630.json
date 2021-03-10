@@ -1,0 +1,486 @@
+{
+	"info": {
+		"_postman_id": "023ef53e-b406-4218-aad6-0c5d57425f94",
+		"name": "3D-TRACKER API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Admin",
+			"item": [
+				{
+					"name": "Races",
+					"item": [
+						{
+							"name": "Browse",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{3D_TRACKER_HOST}}/admin/races?with_movements=1",
+									"host": [
+										"{{3D_TRACKER_HOST}}"
+									],
+									"path": [
+										"admin",
+										"races"
+									],
+									"query": [
+										{
+											"key": "with_movements",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{3D_TRACKER_HOST}}/admin/races?title=test&started_at=2021-03-11 14:30:00&duration=600&location_name=Location&location_latitude=0&location_longitude=0&location_zoom_index=13",
+									"host": [
+										"{{3D_TRACKER_HOST}}"
+									],
+									"path": [
+										"admin",
+										"races"
+									],
+									"query": [
+										{
+											"key": "title",
+											"value": "test"
+										},
+										{
+											"key": "started_at",
+											"value": "2021-03-11 14:30:00"
+										},
+										{
+											"key": "duration",
+											"value": "600"
+										},
+										{
+											"key": "location_name",
+											"value": "Location"
+										},
+										{
+											"key": "location_latitude",
+											"value": "0"
+										},
+										{
+											"key": "location_longitude",
+											"value": "0"
+										},
+										{
+											"key": "location_zoom_index",
+											"value": "13"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Read",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{3D_TRACKER_HOST}}/admin/races/2",
+									"host": [
+										"{{3D_TRACKER_HOST}}"
+									],
+									"path": [
+										"admin",
+										"races",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{3D_TRACKER_HOST}}/admin/races/2?title=test&started_at=2021-03-11 15:30:00",
+									"host": [
+										"{{3D_TRACKER_HOST}}"
+									],
+									"path": [
+										"admin",
+										"races",
+										"2"
+									],
+									"query": [
+										{
+											"key": "title",
+											"value": "test"
+										},
+										{
+											"key": "started_at",
+											"value": "2021-03-11 15:30:00"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{3D_TRACKER_HOST}}/admin/races/1",
+									"host": [
+										"{{3D_TRACKER_HOST}}"
+									],
+									"path": [
+										"admin",
+										"races",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Racers",
+					"item": [
+						{
+							"name": "Browse",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{3D_TRACKER_HOST}}/admin/racers",
+									"host": [
+										"{{3D_TRACKER_HOST}}"
+									],
+									"path": [
+										"admin",
+										"racers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{3D_TRACKER_HOST}}/admin/racers?race_id=2&tracker_id=2&name=Test",
+									"host": [
+										"{{3D_TRACKER_HOST}}"
+									],
+									"path": [
+										"admin",
+										"racers"
+									],
+									"query": [
+										{
+											"key": "race_id",
+											"value": "2"
+										},
+										{
+											"key": "tracker_id",
+											"value": "2"
+										},
+										{
+											"key": "name",
+											"value": "Test"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Read",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{3D_TRACKER_HOST}}/admin/racers/1",
+									"host": [
+										"{{3D_TRACKER_HOST}}"
+									],
+									"path": [
+										"admin",
+										"racers",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{3D_TRACKER_HOST}}/admin/racers/1?race_id=2&name=Test edit",
+									"host": [
+										"{{3D_TRACKER_HOST}}"
+									],
+									"path": [
+										"admin",
+										"racers",
+										"1"
+									],
+									"query": [
+										{
+											"key": "race_id",
+											"value": "2"
+										},
+										{
+											"key": "name",
+											"value": "Test edit"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{3D_TRACKER_HOST}}/admin/racers/1",
+									"host": [
+										"{{3D_TRACKER_HOST}}"
+									],
+									"path": [
+										"admin",
+										"racers",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Trackers",
+					"item": [
+						{
+							"name": "Browse",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{3D_TRACKER_HOST}}/admin/trackers",
+									"host": [
+										"{{3D_TRACKER_HOST}}"
+									],
+									"path": [
+										"admin",
+										"trackers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Acc",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{3D_TRACKER_HOST}}/admin/trackers?password=123654789&color_hex=FF0000&description=Test",
+									"host": [
+										"{{3D_TRACKER_HOST}}"
+									],
+									"path": [
+										"admin",
+										"trackers"
+									],
+									"query": [
+										{
+											"key": "password",
+											"value": "123654789"
+										},
+										{
+											"key": "color_hex",
+											"value": "FF0000"
+										},
+										{
+											"key": "description",
+											"value": "Test"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Read",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{3D_TRACKER_HOST}}/admin/trackers/1",
+									"host": [
+										"{{3D_TRACKER_HOST}}"
+									],
+									"path": [
+										"admin",
+										"trackers",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{3D_TRACKER_HOST}}/admin/trackers/1?description=Test edit&color_hex=FF0000",
+									"host": [
+										"{{3D_TRACKER_HOST}}"
+									],
+									"path": [
+										"admin",
+										"trackers",
+										"1"
+									],
+									"query": [
+										{
+											"key": "description",
+											"value": "Test edit"
+										},
+										{
+											"key": "color_hex",
+											"value": "FF0000"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{3D_TRACKER_HOST}}/admin/trackers/1",
+									"host": [
+										"{{3D_TRACKER_HOST}}"
+									],
+									"path": [
+										"admin",
+										"trackers",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
