@@ -53,7 +53,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{3D_TRACKER_HOST}}/admin/races?title=test&started_at=2021-03-11 14:30:00&duration=600&location_name=Location&location_latitude=0&location_longitude=0&location_zoom_index=13",
+									"raw": "{{3D_TRACKER_HOST}}/admin/races?title=test&started_at=2021-03-11 14:30:00&duration=600&location_name=Эверест&location_latitude=27.988056&location_longitude=86.925278&location_zoom_index=12",
 									"host": [
 										"{{3D_TRACKER_HOST}}"
 									],
@@ -76,19 +76,19 @@
 										},
 										{
 											"key": "location_name",
-											"value": "Location"
+											"value": "Эверест"
 										},
 										{
 											"key": "location_latitude",
-											"value": "0"
+											"value": "27.988056"
 										},
 										{
 											"key": "location_longitude",
-											"value": "0"
+											"value": "86.925278"
 										},
 										{
 											"key": "location_zoom_index",
-											"value": "13"
+											"value": "12"
 										}
 									]
 								}
@@ -107,14 +107,14 @@
 									}
 								],
 								"url": {
-									"raw": "{{3D_TRACKER_HOST}}/admin/races/2",
+									"raw": "{{3D_TRACKER_HOST}}/admin/races/1",
 									"host": [
 										"{{3D_TRACKER_HOST}}"
 									],
 									"path": [
 										"admin",
 										"races",
-										"2"
+										"1"
 									]
 								}
 							},
@@ -132,14 +132,14 @@
 									}
 								],
 								"url": {
-									"raw": "{{3D_TRACKER_HOST}}/admin/races/2?title=test&started_at=2021-03-11 15:30:00",
+									"raw": "{{3D_TRACKER_HOST}}/admin/races/1?title=test&started_at=2021-03-11 15:30:00",
 									"host": [
 										"{{3D_TRACKER_HOST}}"
 									],
 									"path": [
 										"admin",
 										"races",
-										"2"
+										"1"
 									],
 									"query": [
 										{
@@ -221,7 +221,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{3D_TRACKER_HOST}}/admin/racers?race_id=2&tracker_id=2&name=Test",
+									"raw": "{{3D_TRACKER_HOST}}/admin/racers?race_id=1&tracker_id=1&name=Test",
 									"host": [
 										"{{3D_TRACKER_HOST}}"
 									],
@@ -232,11 +232,11 @@
 									"query": [
 										{
 											"key": "race_id",
-											"value": "2"
+											"value": "1"
 										},
 										{
 											"key": "tracker_id",
-											"value": "2"
+											"value": "1"
 										},
 										{
 											"key": "name",
@@ -278,7 +278,7 @@
 								"method": "PUT",
 								"header": [],
 								"url": {
-									"raw": "{{3D_TRACKER_HOST}}/admin/racers/1?race_id=2&name=Test edit",
+									"raw": "{{3D_TRACKER_HOST}}/admin/racers/1?name=Test edit",
 									"host": [
 										"{{3D_TRACKER_HOST}}"
 									],
@@ -290,7 +290,8 @@
 									"query": [
 										{
 											"key": "race_id",
-											"value": "2"
+											"value": "1",
+											"disabled": true
 										},
 										{
 											"key": "name",
@@ -479,8 +480,348 @@
 							"response": []
 						}
 					]
+				},
+				{
+					"name": "Flags",
+					"item": [
+						{
+							"name": "Browse",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{3D_TRACKER_HOST}}/admin/flags",
+									"host": [
+										"{{3D_TRACKER_HOST}}"
+									],
+									"path": [
+										"admin",
+										"flags"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{3D_TRACKER_HOST}}/admin/flags?race_id=1&tracker_id=2&label=test&type=start&role=referee",
+									"host": [
+										"{{3D_TRACKER_HOST}}"
+									],
+									"path": [
+										"admin",
+										"flags"
+									],
+									"query": [
+										{
+											"key": "race_id",
+											"value": "1"
+										},
+										{
+											"key": "tracker_id",
+											"value": "2"
+										},
+										{
+											"key": "label",
+											"value": "test"
+										},
+										{
+											"key": "type",
+											"value": "start"
+										},
+										{
+											"key": "role",
+											"value": "referee"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Read",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{3D_TRACKER_HOST}}/admin/flags/1",
+									"host": [
+										"{{3D_TRACKER_HOST}}"
+									],
+									"path": [
+										"admin",
+										"flags",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Edit",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{3D_TRACKER_HOST}}/admin/flags/1?type=loop",
+									"host": [
+										"{{3D_TRACKER_HOST}}"
+									],
+									"path": [
+										"admin",
+										"flags",
+										"1"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "loop"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{3D_TRACKER_HOST}}/admin/flags/1",
+									"host": [
+										"{{3D_TRACKER_HOST}}"
+									],
+									"path": [
+										"admin",
+										"flags",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Live",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{3D_TRACKER_HOST}}/races/2/live",
+							"host": [
+								"{{3D_TRACKER_HOST}}"
+							],
+							"path": [
+								"races",
+								"2",
+								"live"
+							]
+						}
+					},
+					"response": []
 				}
 			]
+		},
+		{
+			"name": "TraccarApp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{3D_TRACKER_HOST}}/trackers/movements/traccarapp?id=1&timestamp=1615473002&lat=27.988056&lon=86.940278&speed=0&bearing=0&altitude=8840&accuracy=65&batt=77",
+					"host": [
+						"{{3D_TRACKER_HOST}}"
+					],
+					"path": [
+						"trackers",
+						"movements",
+						"traccarapp"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						},
+						{
+							"key": "timestamp",
+							"value": "1615473002"
+						},
+						{
+							"key": "lat",
+							"value": "27.988056"
+						},
+						{
+							"key": "lon",
+							"value": "86.940278"
+						},
+						{
+							"key": "speed",
+							"value": "0"
+						},
+						{
+							"key": "bearing",
+							"value": "0"
+						},
+						{
+							"key": "altitude",
+							"value": "8840"
+						},
+						{
+							"key": "accuracy",
+							"value": "65"
+						},
+						{
+							"key": "batt",
+							"value": "77"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RacePublic",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{3D_TRACKER_HOST}}/races/1",
+					"host": [
+						"{{3D_TRACKER_HOST}}"
+					],
+					"path": [
+						"races",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TrackerAuth",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{3D_TRACKER_HOST}}/trackers/1/auth?password=123654789",
+					"host": [
+						"{{3D_TRACKER_HOST}}"
+					],
+					"path": [
+						"trackers",
+						"1",
+						"auth"
+					],
+					"query": [
+						{
+							"key": "password",
+							"value": "123654789"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "MakeMovement",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{3D_TRACKER_HOST}}/trackers/movements?tracker_id=1&password=123654789&latitude=44.7091269&longitude=37.5913543&altitude=150.5702781677246&generated_at=2021-03-15 19:46:44",
+					"host": [
+						"{{3D_TRACKER_HOST}}"
+					],
+					"path": [
+						"trackers",
+						"movements"
+					],
+					"query": [
+						{
+							"key": "tracker_id",
+							"value": "1"
+						},
+						{
+							"key": "password",
+							"value": "123654789"
+						},
+						{
+							"key": "latitude",
+							"value": "44.7091269"
+						},
+						{
+							"key": "longitude",
+							"value": "37.5913543"
+						},
+						{
+							"key": "altitude",
+							"value": "150.5702781677246"
+						},
+						{
+							"key": "speed",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "bearing",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "battery",
+							"value": "25",
+							"disabled": true
+						},
+						{
+							"key": "generated_at",
+							"value": "2021-03-15 19:46:44"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
