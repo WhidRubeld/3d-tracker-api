@@ -18,6 +18,11 @@ class MakeMovementRequest extends FormRequest
             'password' => 'required|string',
             'latitude' => 'required|numeric',
             'longitude' => 'required|numeric',
+            'altitude' => 'required|numeric',
+            'speed' => 'nullable|numeric',
+            'battery' => 'nullable|integer',
+            'bearing' => 'nullable|numeric',
+            'generated_at' => 'required|date',
         ];
     }
 
