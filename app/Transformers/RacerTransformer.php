@@ -13,10 +13,7 @@ class RacerTransformer extends TransformerAbstract
             'id' => $racer->id,
             'race_id' => $racer->race_id,
             'tracker' => fractal($racer->tracker, new TrackerTransformer()),
-            'avatar_url' => $racer->avatar_file->url ?? null,
             'name' => $racer->name,
-            'captain' => $racer->captain,
-            'vehicle' => $racer->vehicle,
         ];
     }
 }
