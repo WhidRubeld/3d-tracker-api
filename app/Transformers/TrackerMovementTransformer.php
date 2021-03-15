@@ -16,7 +16,7 @@ class TrackerMovementTransformer extends TransformerAbstract
             'bearing' => $movement->bearing,
             'speed' => $movement->speed,
             'battery' => $movement->battery,
-            'generated_at' => $movement->generated_at->toDatetimeString(),
+            'generated_at' => $movement->generated_at,
             'created_at' => $movement->created_at->toDatetimeString(),
         ];
     }
