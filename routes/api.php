@@ -10,6 +10,9 @@ use App\Http\Controllers\Admin\{
 };
 
 use App\Http\Controllers\{
+    TrackerAuthenticationController,
+    MakeMovementController,
+    GetRacePublicController,
     TraccarAppController,
     RaceLiveController,
 };
@@ -25,5 +28,13 @@ Route::group(['prefix' => 'admin'], function () {
     ]);
 });
 
+Route::group(['prefix' => 'trackers'], function () {
+    Route::post('{tracker}/auth', TrackerAuthenticationController::class);
+    Route::post('movements', MakeMovementController::class);
+});
+
+
 Route::post('trackers/movements/traccarapp', TraccarAppController::class);
 Route::get('races/{race}/live', RaceLiveController::class);
+Route::post('movements', MakeMovementController::class);
+Route::get('races/{race}', GetRacePublicController::class);
