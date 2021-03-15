@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\{
 
 use App\Http\Controllers\{
     TraccarAppController,
+    RaceLiveController,
 };
 
 
@@ -25,3 +26,4 @@ Route::group(['prefix' => 'admin'], function () {
 });
 
 Route::post('trackers/movements/traccarapp', TraccarAppController::class);
+Route::get('races/{race}/live', RaceLiveController::class);
