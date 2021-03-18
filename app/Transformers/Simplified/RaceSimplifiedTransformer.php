@@ -12,8 +12,6 @@ class RaceSimplifiedTransformer extends TransformerAbstract
         return [
             'id' => $race->id,
             'title' => $race->title,
-            'cup_class' => $race->cup_class,
-            'level' => $race->level,
             'started_at' => $race->started_at,
             'duration' => $race->duration,
             'racers' => fractal($race->racers, new RacerSimplifiedTransformer()),
