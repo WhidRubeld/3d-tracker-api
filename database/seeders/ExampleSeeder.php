@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 use App\Models\Tracker;
 use App\Models\Location;
@@ -24,7 +23,7 @@ class ExampleSeeder extends Seeder
         $tracker_data = [
             'password' => '123123123',
             'color_hex' => 'FF0000',
-            'description' => 'Test'
+            'description' => 'Test',
         ];
 
         $location_data = [
