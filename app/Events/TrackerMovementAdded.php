@@ -5,20 +5,24 @@ namespace App\Events;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 use Illuminate\Queue\SerializesModels;
 
 use App\Models\TrackerMovement;
 use App\Models\Racer;
 use App\Models\Flag;
 use App\Transformers\TrackerMovementTransformer;
-use Spatie\Fractal\Fractal;
 
-class TrackerMovementAdded
+class TrackerMovementAdded implements ShouldBroadcastNow
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $race;
+
+    public $type;
+    public $id;
     public $movement;
+
     /**
      * Create a new event instance.
      *
@@ -31,9 +35,13 @@ class TrackerMovementAdded
         $racer = Racer::where('tracker_id', $movement->tracker_id)->first();
         if (!empty($racer)) {
             $this->race = $racer->race;
+            $this->type = 'racer';
+            $this->id = $racer->id;
         } else {
             $flag = Flag::where('tracker_id', $movement->tracker_id)->first();
             $this->race = $flag->race;
+            $this->type = 'flag';
+            $this->id = $flag->id;
         }
     }
 
@@ -42,27 +50,32 @@ class TrackerMovementAdded
      *
      * @return \Illuminate\Broadcasting\Channel|array
      */
-    public function broadcastOn()
+    public function broadcastOn(): String
     {
         return new Channel('race.' . $this->race->id);
     }
 
-    public function broadcastAs()
+    public function broadcastAs(): String
     {
         return 'new-position';
     }
 
-    public function broadcastWhen()
+    public function broadcastWhen(): Bool
     {
-        if ($this->movement->tracker->last_movement->id === $this->movement->id) {
+        $last_movement = $this->movement->tracker->movements()->first();
+        if ($last_movement->id === $this->movement->id) {
             return true;
         }
 
         return false;
     }
 
-    public function broadcastWith(): Fractal
+    public function broadcastWith(): array
     {
-        return fractal($this->movement, new TrackerMovementTransformer());
+        return [
+            'id' => $this->id,
+            'type' => $this->type,
+            'movement' => fractal($this->movement, new TrackerMovementTransformer()),
+        ];
     }
 }

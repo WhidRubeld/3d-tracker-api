@@ -13,7 +13,7 @@ class TrackerLiveTransformer extends TransformerAbstract
         return [
             'id' => $tracker->id,
             'color_hex' => $tracker->color_hex,
-            'movement' => fractal($tracker->last_movement, new TrackerMovementTransformer()),
+            'movement' => fractal($tracker->movements()->first(), new TrackerMovementTransformer()),
         ];
     }
 }

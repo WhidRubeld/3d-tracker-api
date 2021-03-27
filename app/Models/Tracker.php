@@ -18,11 +18,6 @@ class Tracker extends Model
 
     public function movements(): HasMany
     {
-        return $this->hasMany(TrackerMovement::class, 'tracker_id', 'id')->orderBy('generated_at');
-    }
-
-    public function getLastMovementAttribute(): ?TrackerMovement
-    {
-        return $this->movements()->orderBy('generated_at', 'desc')->first() ?? null;
+        return $this->hasMany(TrackerMovement::class, 'tracker_id', 'id')->orderBy('generated_at', 'desc');
     }
 }
