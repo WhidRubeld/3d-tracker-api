@@ -11,7 +11,6 @@ class TrackerTransformer extends TransformerAbstract
     {
         return [
             'id' => $tracker->id,
-            'description' => $tracker->description,
             'movements' => fractal($tracker->movements, new TrackerMovementTransformer()),
             'color_hex' => $tracker->color_hex,
         ];

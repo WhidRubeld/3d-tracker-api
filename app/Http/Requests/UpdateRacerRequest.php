@@ -15,8 +15,8 @@ class UpdateRacerRequest extends FormRequest
     {
         return [
             'race_id' => 'integer|exists:races,id',
-            'tracker_id' => 'integer|exists:trackers,id|unique:racers,tracker_id',
             'name' => 'string|max:255',
+            'color_hex' => 'string|regex:/^([A-Fa-f0-9]{6})/i',
         ];
     }
 

@@ -16,10 +16,10 @@ class CreateFlagRequest extends FormRequest
     {
         return [
             'race_id' => 'required|integer|exists:races,id',
-            'tracker_id' => 'required|integer|exists:trackers,id|unique:flags,tracker_id',
             'label' => 'required|string|max:255',
             'role' => 'nullable|string|in:' . implode(',', Flag::ROLES),
             'type' => 'nullable|string|in:' . implode(',', Flag::TYPES),
+            'color_hex' => 'required|string|regex:/^([A-Fa-f0-9]{6})/i',
         ];
     }
 

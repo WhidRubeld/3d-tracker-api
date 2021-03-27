@@ -45,4 +45,13 @@ class Flag extends Model
     {
         return $this->hasOne(Tracker::class, 'id', 'tracker_id');
     }
+
+    public static function boot(): Void
+    {
+        parent::boot();
+
+        static::deleting(function ($flag) {
+            $flag->tracker->delete();
+        });
+    }
 }

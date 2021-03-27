@@ -15,8 +15,8 @@ class CreateRacerRequest extends FormRequest
     {
         return [
             'race_id' => 'required|integer|exists:races,id',
-            'tracker_id' => 'required|integer|exists:trackers,id|unique:racers,tracker_id',
             'name' => 'required|string|max:255',
+            'color_hex' => 'required|string|regex:/^([A-Fa-f0-9]{6})/i',
         ];
     }
 

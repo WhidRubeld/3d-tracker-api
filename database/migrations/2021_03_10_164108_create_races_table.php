@@ -19,6 +19,7 @@ class CreateRacesTable extends Migration
             $table->string('title');
             $table->timestamp('started_at');
             $table->unsignedBigInteger('duration')->default(60);
+            $table->timestamps();
 
             $table->foreign('location_id')
                 ->references('id')

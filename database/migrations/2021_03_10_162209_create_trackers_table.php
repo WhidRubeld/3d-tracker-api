@@ -15,8 +15,6 @@ class CreateTrackersTable extends Migration
     {
         Schema::create('trackers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('password');
-            $table->string('description')->nullable()->default(null);
             $table->string('color_hex', 6)->default('aaaaaa');
         });
     }

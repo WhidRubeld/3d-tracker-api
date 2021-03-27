@@ -1,23 +1,23 @@
 <?php
 
-namespace App\UseCases\Racers;
+namespace App\UseCases\Flags;
 
 use Illuminate\Support\Facades\DB;
-use App\Models\Racer;
-use App\Http\Requests\UpdateRacerRequest;
+use App\Models\Flag;
+use App\Http\Requests\UpdateFlagRequest;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Throwable;
 
-class UpdateRacerUseCase
+class UpdateFlagUseCase
 {
-    public function __invoke(Racer $racer, UpdateRacerRequest $request): Racer
+    public function __invoke(Flag $flag, UpdateFlagRequest $request): Flag
     {
         try {
             DB::beginTransaction();
 
-            $racer->update($request->except('color_hex'));
+            $flag->update($request->except('color_hex'));
             if ($request->has('color_hex')) {
-                $racer->tracker()->update($request->only('color_hex'));
+                $flag->tracker->update($request->only('color_hex'));
             }
 
             DB::commit();
@@ -26,6 +26,6 @@ class UpdateRacerUseCase
             throw new BadRequestHttpException($exception->getMessage());
         }
 
-        return $racer->refresh();
+        return $flag->refresh();
     }
 }

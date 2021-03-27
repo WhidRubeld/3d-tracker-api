@@ -12,20 +12,17 @@ class Tracker extends Model
 
     protected $table = 'trackers';
 
-    protected $fillable = [
-        'password', 'description', 'color_hex'
-    ];
+    protected $fillable = ['color_hex'];
 
     public $timestamps = false;
 
     public function movements(): HasMany
     {
-        return $this->hasMany(TrackerMovement::class, 'tracker_id', 'id')
-            ->orderBy('generated_at');
+        return $this->hasMany(TrackerMovement::class, 'tracker_id', 'id')->orderBy('generated_at');
     }
 
     public function getLastMovementAttribute(): ?TrackerMovement
     {
-        return $this->movements->last() ?? null;
+        return $this->movements()->orderBy('generated_at', 'desc')->first() ?? null;
     }
 }

@@ -2,16 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Routing\Controller;
-use App\Http\Requests\MakeMovementRequest;
-use App\Transformers\TrackerMovementTransformer;
+use Illuminate\Http\Request;
 use App\UseCases\Movements\MakeMovementUseCase;
+use App\Transformers\TrackerMovementTransformer;
 use Spatie\Fractal\Fractal;
 
 class MakeMovementController extends Controller
 {
     public function __invoke(
-        MakeMovementRequest $request,
+        Request $request,
         MakeMovementUseCase $case
     ): Fractal {
         return fractal($case($request), new TrackerMovementTransformer());

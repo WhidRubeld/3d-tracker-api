@@ -16,10 +16,10 @@ class UpdateFlagRequest extends FormRequest
     {
         return [
             'race_id' => 'integer|exists:races,id',
-            'tracker_id' => 'integer|exists:trackers,id|unique:flags,tracker_id',
             'label' => 'string|max:255',
             'role' => 'string|in:' . implode(',', Flag::ROLES),
             'type' => 'string|in:' . implode(',', Flag::TYPES),
+            'color_hex' => 'string|regex:/^([A-Fa-f0-9]{6})/i',
         ];
     }
 

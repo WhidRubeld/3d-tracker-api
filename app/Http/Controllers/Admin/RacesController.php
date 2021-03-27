@@ -17,13 +17,11 @@ use Spatie\Fractal\Fractal;
 
 class RacesController extends Controller
 {
-    public function index(GetRacesRequest $request): Fractal
+    public function index(): Fractal
     {
-        $transformerName = $request->input('with_movements')
-            ? RaceTransformer::class
-            : RaceSimplifiedTransformer::class;
+        $races = Race::latest()->paginate(15);
 
-        return fractal(Race::query()->orderBy('id', 'DESC')->paginate(15), new $transformerName());
+        return fractal($races, new RaceSimplifiedTransformer());
     }
 
     public function store(

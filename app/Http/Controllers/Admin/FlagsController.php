@@ -8,6 +8,8 @@ use App\Models\Flag;
 use App\Http\Requests\CreateFlagRequest;
 use App\Http\Requests\UpdateFlagRequest;
 use App\Transformers\FlagTransformer;
+use App\UseCases\Flags\CreateFlagUseCase;
+use App\UseCases\Flags\UpdateFlagUseCase;
 use Spatie\Fractal\Fractal;
 
 class FlagsController extends Controller
@@ -17,9 +19,9 @@ class FlagsController extends Controller
         return fractal(Flag::all(), new FlagTransformer());
     }
 
-    public function store(CreateFlagRequest $request): Fractal
+    public function store(CreateFlagRequest $request, CreateFlagUseCase $case): Fractal
     {
-        return fractal(Flag::create($request->validated()), new FlagTransformer());
+        return fractal($case($request), new FlagTransformer());
     }
 
     public function show(Flag $flag): Fractal
@@ -27,11 +29,12 @@ class FlagsController extends Controller
         return fractal($flag, new FlagTransformer());
     }
 
-    public function update(Flag $flag, UpdateFlagRequest $request): Fractal
-    {
-        $flag->update($request->validated());
-
-        return fractal($flag->refresh(), new FlagTransformer());
+    public function update(
+        Flag $flag,
+        UpdateFlagRequest $request,
+        UpdateFlagUseCase $case
+    ): Fractal {
+        return fractal($case($flag, $request), new FlagTransformer());
     }
 
     public function destroy(Flag $flag): Fractal

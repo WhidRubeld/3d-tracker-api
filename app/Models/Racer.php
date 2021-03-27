@@ -25,4 +25,13 @@ class Racer extends Model
     {
         return $this->hasOne(Tracker::class, 'id', 'tracker_id');
     }
+
+    public static function boot(): Void
+    {
+        parent::boot();
+
+        static::deleting(function ($racer) {
+            $racer->tracker->delete();
+        });
+    }
 }

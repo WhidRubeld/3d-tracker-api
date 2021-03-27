@@ -20,11 +20,7 @@ class ExampleSeeder extends Seeder
      */
     public function run()
     {
-        $tracker_data = [
-            'password' => '123123123',
-            'color_hex' => 'FF0000',
-            'description' => 'Test',
-        ];
+        $tracker_data = ['color_hex' => 'FF0000'];
 
         $location_data = [
             'name' => 'Эверест',

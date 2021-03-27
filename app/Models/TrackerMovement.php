@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
-use App\Events\TrackerGeolocationAdded;
+use App\Events\TrackerMovementAdded;
 
 class TrackerMovement extends Model
 {
@@ -15,7 +15,7 @@ class TrackerMovement extends Model
     protected $table = 'tracker_movements';
 
     protected $dispatchesEvents = [
-        'created' => TrackerGeolocationAdded::class,
+        'created' => TrackerMovementAdded::class,
     ];
 
     protected $fillable = [

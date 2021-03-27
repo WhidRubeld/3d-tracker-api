@@ -13,14 +13,12 @@ use App\Models\Flag;
 use App\Transformers\TrackerMovementTransformer;
 use Spatie\Fractal\Fractal;
 
-class TrackerGeolocationAdded
+class TrackerMovementAdded
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     public $race;
-    public $racer;
-    public $flag;
-
+    public $movement;
     /**
      * Create a new event instance.
      *
@@ -30,17 +28,12 @@ class TrackerGeolocationAdded
     {
         $this->movement = $movement;
 
-        $racer = Racer::where('tracker_id', (int) $movement->tracker_id)->first();
-
+        $racer = Racer::where('tracker_id', $movement->tracker_id)->first();
         if (!empty($racer)) {
-            $this->racer = $racer;
             $this->race = $racer->race;
         } else {
-            $flag = Flag::where('tracker_id', (int) $movement->tracker_id)->first();
-            if (!empty($flag)) {
-                $this->flag = $flag;
-                $this->race = $flag->race;
-            }
+            $flag = Flag::where('tracker_id', $movement->tracker_id)->first();
+            $this->race = $flag->race;
         }
     }
 
@@ -51,15 +44,21 @@ class TrackerGeolocationAdded
      */
     public function broadcastOn()
     {
-        if (!empty($this->race)) {
-            return new Channel('race.' . $this->race->id);
-        }
-        return [];
+        return new Channel('race.' . $this->race->id);
     }
 
     public function broadcastAs()
     {
-        return 'locate';
+        return 'new-position';
+    }
+
+    public function broadcastWhen()
+    {
+        if ($this->movement->tracker->last_movement->id === $this->movement->id) {
+            return true;
+        }
+
+        return false;
     }
 
     public function broadcastWith(): Fractal
