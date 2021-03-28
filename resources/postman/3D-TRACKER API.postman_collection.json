@@ -23,19 +23,13 @@
 									}
 								],
 								"url": {
-									"raw": "{{3D_TRACKER_HOST}}/admin/races?with_movements=1",
+									"raw": "{{3D_TRACKER_HOST}}/admin/races",
 									"host": [
 										"{{3D_TRACKER_HOST}}"
 									],
 									"path": [
 										"admin",
 										"races"
-									],
-									"query": [
-										{
-											"key": "with_movements",
-											"value": "1"
-										}
 									]
 								}
 							},
@@ -221,7 +215,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{3D_TRACKER_HOST}}/admin/racers?race_id=1&tracker_id=1&name=Test",
+									"raw": "{{3D_TRACKER_HOST}}/admin/racers?race_id=1&name=Test&color_hex=cccccc",
 									"host": [
 										"{{3D_TRACKER_HOST}}"
 									],
@@ -235,12 +229,12 @@
 											"value": "1"
 										},
 										{
-											"key": "tracker_id",
-											"value": "1"
-										},
-										{
 											"key": "name",
 											"value": "Test"
+										},
+										{
+											"key": "color_hex",
+											"value": "cccccc"
 										}
 									]
 								}
@@ -278,7 +272,7 @@
 								"method": "PUT",
 								"header": [],
 								"url": {
-									"raw": "{{3D_TRACKER_HOST}}/admin/racers/1?name=Test edit",
+									"raw": "{{3D_TRACKER_HOST}}/admin/racers/1?name=Test edit&color_hex=ccccca",
 									"host": [
 										"{{3D_TRACKER_HOST}}"
 									],
@@ -296,6 +290,10 @@
 										{
 											"key": "name",
 											"value": "Test edit"
+										},
+										{
+											"key": "color_hex",
+											"value": "ccccca"
 										}
 									]
 								}
@@ -321,158 +319,6 @@
 									"path": [
 										"admin",
 										"racers",
-										"1"
-									]
-								}
-							},
-							"response": []
-						}
-					]
-				},
-				{
-					"name": "Trackers",
-					"item": [
-						{
-							"name": "Browse",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{3D_TRACKER_HOST}}/admin/trackers",
-									"host": [
-										"{{3D_TRACKER_HOST}}"
-									],
-									"path": [
-										"admin",
-										"trackers"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Add",
-							"request": {
-								"method": "POST",
-								"header": [
-									{
-										"key": "Acc",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{3D_TRACKER_HOST}}/admin/trackers?password=123654789&color_hex=FF0000&description=Test",
-									"host": [
-										"{{3D_TRACKER_HOST}}"
-									],
-									"path": [
-										"admin",
-										"trackers"
-									],
-									"query": [
-										{
-											"key": "password",
-											"value": "123654789"
-										},
-										{
-											"key": "color_hex",
-											"value": "FF0000"
-										},
-										{
-											"key": "description",
-											"value": "Test"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Read",
-							"request": {
-								"method": "GET",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{3D_TRACKER_HOST}}/admin/trackers/1",
-									"host": [
-										"{{3D_TRACKER_HOST}}"
-									],
-									"path": [
-										"admin",
-										"trackers",
-										"1"
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Edit",
-							"request": {
-								"method": "PUT",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{3D_TRACKER_HOST}}/admin/trackers/1?description=Test edit&color_hex=FF0000",
-									"host": [
-										"{{3D_TRACKER_HOST}}"
-									],
-									"path": [
-										"admin",
-										"trackers",
-										"1"
-									],
-									"query": [
-										{
-											"key": "description",
-											"value": "Test edit"
-										},
-										{
-											"key": "color_hex",
-											"value": "FF0000"
-										}
-									]
-								}
-							},
-							"response": []
-						},
-						{
-							"name": "Delete",
-							"request": {
-								"method": "DELETE",
-								"header": [
-									{
-										"key": "Accept",
-										"value": "application/json",
-										"type": "text"
-									}
-								],
-								"url": {
-									"raw": "{{3D_TRACKER_HOST}}/admin/trackers/1",
-									"host": [
-										"{{3D_TRACKER_HOST}}"
-									],
-									"path": [
-										"admin",
-										"trackers",
 										"1"
 									]
 								}
@@ -520,7 +366,7 @@
 									}
 								],
 								"url": {
-									"raw": "{{3D_TRACKER_HOST}}/admin/flags?race_id=1&tracker_id=2&label=test&type=start&role=referee",
+									"raw": "{{3D_TRACKER_HOST}}/admin/flags?race_id=1&label=test&type=start&role=referee&color_hex=aaaaaa",
 									"host": [
 										"{{3D_TRACKER_HOST}}"
 									],
@@ -534,10 +380,6 @@
 											"value": "1"
 										},
 										{
-											"key": "tracker_id",
-											"value": "2"
-										},
-										{
 											"key": "label",
 											"value": "test"
 										},
@@ -548,6 +390,10 @@
 										{
 											"key": "role",
 											"value": "referee"
+										},
+										{
+											"key": "color_hex",
+											"value": "aaaaaa"
 										}
 									]
 								}
@@ -585,19 +431,24 @@
 								"method": "PUT",
 								"header": [],
 								"url": {
-									"raw": "{{3D_TRACKER_HOST}}/admin/flags/1?type=loop",
+									"raw": "{{3D_TRACKER_HOST}}/admin/flags/2?type=start",
 									"host": [
 										"{{3D_TRACKER_HOST}}"
 									],
 									"path": [
 										"admin",
 										"flags",
-										"1"
+										"2"
 									],
 									"query": [
 										{
 											"key": "type",
-											"value": "loop"
+											"value": "start"
+										},
+										{
+											"key": "color_hex",
+											"value": "aaaaac",
+											"disabled": true
 										}
 									]
 								}
@@ -630,48 +481,21 @@
 							"response": []
 						}
 					]
-				},
-				{
-					"name": "Live",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Accept",
-								"value": "application/json",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "{{3D_TRACKER_HOST}}/races/2/live",
-							"host": [
-								"{{3D_TRACKER_HOST}}"
-							],
-							"path": [
-								"races",
-								"2",
-								"live"
-							]
-						}
-					},
-					"response": []
 				}
 			]
 		},
 		{
-			"name": "TraccarApp",
+			"name": "MakeMovement",
 			"request": {
 				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "{{3D_TRACKER_HOST}}/trackers/movements/traccarapp?id=1&timestamp=1615473002&lat=27.988056&lon=86.940278&speed=0&bearing=0&altitude=8840&accuracy=65&batt=77",
+					"raw": "{{3D_TRACKER_HOST}}/movement?id=1&timestamp=1615473000&lat=27.990056&lon=86.940278&speed=0&bearing=0&altitude=8840&accuracy=65&batt=77",
 					"host": [
 						"{{3D_TRACKER_HOST}}"
 					],
 					"path": [
-						"trackers",
-						"movements",
-						"traccarapp"
+						"movement"
 					],
 					"query": [
 						{
@@ -680,11 +504,11 @@
 						},
 						{
 							"key": "timestamp",
-							"value": "1615473002"
+							"value": "1615473000"
 						},
 						{
 							"key": "lat",
-							"value": "27.988056"
+							"value": "27.990056"
 						},
 						{
 							"key": "lon",
@@ -709,114 +533,6 @@
 						{
 							"key": "batt",
 							"value": "77"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "RacePublic",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{3D_TRACKER_HOST}}/races/1",
-					"host": [
-						"{{3D_TRACKER_HOST}}"
-					],
-					"path": [
-						"races",
-						"1"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "TrackerAuth",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "{{3D_TRACKER_HOST}}/trackers/1/auth?password=123654789",
-					"host": [
-						"{{3D_TRACKER_HOST}}"
-					],
-					"path": [
-						"trackers",
-						"1",
-						"auth"
-					],
-					"query": [
-						{
-							"key": "password",
-							"value": "123654789"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "MakeMovement",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Accept",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "{{3D_TRACKER_HOST}}/trackers/movements?tracker_id=1&password=123654789&latitude=44.7091269&longitude=37.5913543&altitude=150.5702781677246&generated_at=2021-03-15 19:46:44",
-					"host": [
-						"{{3D_TRACKER_HOST}}"
-					],
-					"path": [
-						"trackers",
-						"movements"
-					],
-					"query": [
-						{
-							"key": "tracker_id",
-							"value": "1"
-						},
-						{
-							"key": "password",
-							"value": "123654789"
-						},
-						{
-							"key": "latitude",
-							"value": "44.7091269"
-						},
-						{
-							"key": "longitude",
-							"value": "37.5913543"
-						},
-						{
-							"key": "altitude",
-							"value": "150.5702781677246"
-						},
-						{
-							"key": "speed",
-							"value": "0",
-							"disabled": true
-						},
-						{
-							"key": "bearing",
-							"value": "0",
-							"disabled": true
-						},
-						{
-							"key": "battery",
-							"value": "25",
-							"disabled": true
-						},
-						{
-							"key": "generated_at",
-							"value": "2021-03-15 19:46:44"
 						}
 					]
 				}
