@@ -15,11 +15,9 @@ class UpdateRaceRequest extends FormRequest
     {
         return [
             'title' => 'string|max:255',
-            'description' => 'nullable|string|max:255',
             'started_at' => 'date',
             'duration' => 'integer|min:1',
             'location_name' => 'string|max:255|required_with:location_latitude,location_longitude,location_zoom_index',
-            'location_description' => 'nullable|string|max:255',
             'location_latitude' => 'numeric|required_with:location_name,location_longitude,location_zoom_index',
             'location_longitude' => 'numeric|required_with:location_name,location_latitude,location_zoom_index',
             'location_zoom_index' => 'integer|required_with:location_name,location_latitude,location_longitude',

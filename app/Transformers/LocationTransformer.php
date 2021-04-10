@@ -12,7 +12,6 @@ class LocationTransformer extends TransformerAbstract
         return [
             'id' => $location->id,
             'name' => $location->name,
-            'description' => $location->description,
             'latitude' => $location->latitude,
             'longitude' => $location->longitude,
             'zoom_index' => $location->zoom_index,

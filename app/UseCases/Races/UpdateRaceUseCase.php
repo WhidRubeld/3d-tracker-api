@@ -19,7 +19,6 @@ class UpdateRaceUseCase
             if ($request->has(['location_name', 'location_latitude', 'location_longitude', 'location_zoom_index'])) {
                 $race->location->update([
                     'name' => $request->input('location_name'),
-                    'description' => $request->input('location_description') ?? null,
                     'latitude' => $request->input('location_latitude'),
                     'longitude' => $request->input('location_longitude'),
                     'zoom_index' => $request->input('location_zoom_index'),

@@ -18,7 +18,6 @@ class CreateRaceUseCase
 
             $location = Location::create([
                 'name' => $request->input('location_name'),
-                'description' => $request->input('location_description') ?? null,
                 'latitude' => $request->input('location_latitude'),
                 'longitude' => $request->input('location_longitude'),
                 'zoom_index' => $request->input('location_zoom_index'),
