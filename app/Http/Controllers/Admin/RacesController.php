@@ -28,7 +28,7 @@ class RacesController extends Controller
         CreateRaceRequest $request,
         CreateRaceUseCase $case
     ): Fractal {
-        return fractal($case($request), new RaceTransformer());
+        return fractal($case($request), new RaceLiveTransformer());
     }
 
     public function show(Race $race, GetRacesRequest $request): Fractal
@@ -47,7 +47,7 @@ class RacesController extends Controller
     ): Fractal {
         $race->update($request->validated());
 
-        return fractal($case($race, $request), new RaceTransformer());
+        return fractal($case($race, $request), new RaceLiveTransformer());
     }
 
     public function destroy(Race $race): Fractal
