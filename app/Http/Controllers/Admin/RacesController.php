@@ -19,7 +19,7 @@ class RacesController extends Controller
 {
     public function index(): Fractal
     {
-        $races = Race::latest()->paginate(6);
+        $races = Race::orderBy('id', 'desc')->paginate(6);
 
         return fractal($races, new RaceSimplifiedTransformer());
     }
